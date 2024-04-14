@@ -1,0 +1,30 @@
+#contenedor {
+    margin-left: 25%;
+    margin-right: 25%;
+    border-radius: 10px;
+    border: 2px solid #0000;
+    background: 
+    linear-gradient(white, #676363) padding-box,
+    linear-gradient(#09f, white) border-box;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+}
+
+p {
+    display: flex;
+    justify-content: center;
+}
+
+.centrar {
+    display: flex;
+    justify-content: center;
+}
+
+#output_field {
+    color: white;
+    display: flex;
+    justify-content: center;
+}
