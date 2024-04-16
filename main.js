@@ -12,7 +12,19 @@ async function learnLinear() {
     const xs = tf.tensor2d([-6, -4, -3, -1, 0, 1, 4, 7, 9], [9, 1]);
     const ys = tf.tensor2d([-6, -2, 0, 4, 6, 8, 14, 20, 24], [9, 1]);
 
-    await model.fit(xs, ys, {epochs: 350});
+    const surface = { name: 'Loss', tab: 'Training' };
+    const history = [];
+
+    await model.fit(xs, ys, {
+            epochs: 350, 
+            callbacks : {
+                onEpochEnd: (epoch, logs) => {
+                    history.push(logs);
+                    tfvis.show.history(surface, history, ['loss']);
+                }
+            }
+         },  
+    );
 
     // Muestra mensaje de entrenamiento finalizado
     Swal.fire({
