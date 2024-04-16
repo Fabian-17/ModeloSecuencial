@@ -9,10 +9,10 @@ async function learnLinear() {
         optimizer: 'sgd'
     });
 
-    const xs = tf.tensor2d([-6, -5, -4, -3, -2, -1, 0, 1, 2], [9, 1]);
-    const ys = tf.tensor2d([-6, -4, -2, 0, 2, 4, 6, 8, 10], [9, 1]);
+    const xs = tf.tensor2d([-6, -4, -3, -1, 0, 1, 4, 7, 9], [9, 1]);
+    const ys = tf.tensor2d([-6, -2, 0, 4, 6, 8, 14, 20, 24], [9, 1]);
 
-    await model.fit(xs, ys, {epochs: 680});
+    await model.fit(xs, ys, {epochs: 350});
 
     // Muestra mensaje de entrenamiento finalizado
     Swal.fire({
@@ -26,18 +26,6 @@ async function learnLinear() {
 
 // Evento de clic en el botón "Entrenar Modelo"
 document.getElementById('entrenar_modelo').addEventListener('click', async () => {
-        // Valida que el valor de entrada no esté vacío
-        const inputNumber = parseFloat(document.getElementById('input_number').value);
-        if (isNaN(inputNumber)) {
-            // Muestra mensaje de error si el valor está vacío
-            Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: 'Ingresa un valor válido antes de entrenar el modelo'
-            });
-            console.error("Valor de entrada vacío.");
-            return; // Salir de la función si el valor está vacío
-        }
     await learnLinear();
 });
 
